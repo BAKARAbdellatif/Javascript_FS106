@@ -118,6 +118,18 @@
 
     chargerDataSenior()
 
+    function chargerAdultesData() {
+        var tbody = "";
+        for (let item of data) {
+            tbody += "<tr><td>" + item.nom + "</td><td>" + item.prenom + "</td><td>" + item.anneeNaissance + "</td><td>" + item.ville + "</td></tr>"
+        }
+        tbodySenior = document.getElementById("adultes-table-body");
+        tbodySenior.innerHTML = tbody;
+
+    }
+
+    chargerAdultesData()
+
 
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
