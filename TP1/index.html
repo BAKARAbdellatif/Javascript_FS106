@@ -1,0 +1,125 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+<div class="container-fluid">
+    <h3>Table des seniors</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Date de naissance</th>
+                <th>Ville</th>
+            </tr>
+        </thead>
+        <tbody id="seniors-table-body">
+
+        </tbody>
+    </table>
+
+    <h3>Table des adultes</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Date de naissance</th>
+                <th>Ville</th>
+            </tr>
+        </thead>
+        <tbody id="adultes-table-body">
+
+        </tbody>
+    </table>
+
+    <h3>Table des mineurs</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Date de naissance</th>
+                <th>Ville</th>
+            </tr>
+        </thead>
+        <tbody id="mineurs-table-body">
+
+        </tbody>
+    </table>
+
+</div>
+
+<script>
+
+    let data = [{
+        nom: "Dupont",
+        prenom: "jean",
+        anneeNaissance: 1960,
+        ville: "Casablanca"
+    },
+    {
+        nom: "John",
+        prenom: "Doe",
+        anneeNaissance: 1955,
+        ville: "Rabat"
+    },
+    {
+        nom: "Jane",
+        prenom: "Smith",
+        anneeNaissance: 1990,
+        ville: "Tanger"
+    },
+    {
+        nom: "Alice",
+        prenom: "Johnson",
+        anneeNaissance: 1950,
+        ville: "Fès"
+    },
+    {
+        nom: "Bob",
+        prenom: "Brown",
+        anneeNaissance: 1998,
+        ville: "Marrakech"
+    },
+    {
+        nom: "Charlie",
+        prenom: "Davis",
+        anneeNaissance: 1992,
+        ville: "Agadir"
+    },
+    {
+        nom: "Eve",
+        prenom: "Wilson",
+        anneeNaissance: 2012,
+        ville: "Oujda"
+    },
+    {
+        nom: "Frank",
+        prenom: "Miller",
+        anneeNaissance: 2014,
+        ville: "Kenitra"
+    },
+    {
+        nom: "Grace",
+        prenom: "Taylor",
+        anneeNaissance: 2010,
+        ville: "Tétouan"
+    }
+    ];
+
+    function chargerDataSenior() {
+        var tbody = "";
+        for (let item of data) {
+            tbody += "<tr><td>" + item.nom + "</td><td>" + item.prenom + "</td><td>" + item.anneeNaissance + "</td><td>" + item.ville + "</td></tr>"
+        }
+        tbodySenior = document.getElementById("seniors-table-body");
+        tbodySenior.innerHTML = tbody;
+    }
+
+    chargerDataSenior()
+
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
