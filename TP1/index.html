@@ -128,7 +128,10 @@
     function chargerAdultesData() {
         var tbody = "";
         for (let item of data) {
-            tbody += "<tr><td>" + item.nom + "</td><td>" + item.prenom + "</td><td>" + item.anneeNaissance + "</td><td>" + item.ville + "</td></tr>"
+            let age = currentYear - item.anneeNaissance;
+            if (age >= 18 && age < 60) {
+                tbody += "<tr><td>" + item.nom + "</td><td>" + item.prenom + "</td><td>" + item.anneeNaissance + "</td><td>" + item.ville + "</td></tr>"
+            }
         }
         tbodyAdultes = document.getElementById("adultes-table-body");
         tbodyAdultes.innerHTML = tbody;
@@ -140,7 +143,10 @@
     function chargerMineursData() {
         var tbody = "";
         for (let item of data) {
-            tbody += "<tr><td>" + item.nom + "</td><td>" + item.prenom + "</td><td>" + item.anneeNaissance + "</td><td>" + item.ville + "</td></tr>"
+            let age = currentYear - item.anneeNaissance;
+            if (age < 18) {
+                tbody += "<tr><td>" + item.nom + "</td><td>" + item.prenom + "</td><td>" + item.anneeNaissance + "</td><td>" + item.ville + "</td></tr>"
+            }
         }
         tbodyAdultes = document.getElementById("mineurs-table-body");
         tbodyAdultes.innerHTML = tbody;
