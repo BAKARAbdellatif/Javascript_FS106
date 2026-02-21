@@ -8,7 +8,7 @@
             <tr>
                 <th>Nom</th>
                 <th>Prénom</th>
-                <th>Date de naissance</th>
+                <th>Age</th>
                 <th>Ville</th>
             </tr>
         </thead>
@@ -23,7 +23,7 @@
             <tr>
                 <th>Nom</th>
                 <th>Prénom</th>
-                <th>Date de naissance</th>
+                <th>Age</th>
                 <th>Ville</th>
             </tr>
         </thead>
@@ -38,7 +38,7 @@
             <tr>
                 <th>Nom</th>
                 <th>Prénom</th>
-                <th>Date de naissance</th>
+                <th>Age</th>
                 <th>Ville</th>
             </tr>
         </thead>
@@ -116,7 +116,8 @@
         for (let item of data) {
             let age = currentYear - item.anneeNaissance;
             if (age >= 60) {
-                tbody += "<tr><td>" + item.nom + "</td><td>" + item.prenom + "</td><td>" + item.anneeNaissance + "</td><td>" + item.ville + "</td></tr>"
+                item.age = age;
+                tbody += "<tr><td>" + item.nom + "</td><td>" + item.prenom + "</td><td>" + item.age + "</td><td>" + item.ville + "</td></tr>"
             }
         }
         tbodySenior = document.getElementById("seniors-table-body");
@@ -130,7 +131,8 @@
         for (let item of data) {
             let age = currentYear - item.anneeNaissance;
             if (age >= 18 && age < 60) {
-                tbody += "<tr><td>" + item.nom + "</td><td>" + item.prenom + "</td><td>" + item.anneeNaissance + "</td><td>" + item.ville + "</td></tr>"
+                item.age = age;
+                tbody += "<tr><td>" + item.nom + "</td><td>" + item.prenom + "</td><td>" + item.age + "</td><td>" + item.ville + "</td></tr>"
             }
         }
         tbodyAdultes = document.getElementById("adultes-table-body");
@@ -145,7 +147,8 @@
         for (let item of data) {
             let age = currentYear - item.anneeNaissance;
             if (age < 18) {
-                tbody += "<tr><td>" + item.nom + "</td><td>" + item.prenom + "</td><td>" + item.anneeNaissance + "</td><td>" + item.ville + "</td></tr>"
+                item.age = age;
+                tbody += "<tr><td>" + item.nom + "</td><td>" + item.prenom + "</td><td>" + item.age + "</td><td>" + item.ville + "</td></tr>"
             }
         }
         tbodyAdultes = document.getElementById("mineurs-table-body");

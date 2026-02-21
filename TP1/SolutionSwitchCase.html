@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Gestion des Catégories</title>
+</head>
+
+<body class="bg-light">
+
+    <div class="container mt-5">
+
+        <div class="alert alert-secondary shadow-sm mb-5">
+            <h4 class="alert-heading border-bottom pb-2">📜 Description de la solution</h4>
+            <p class="mb-0">
+                Cette solution est basée sur un <strong>switch case</strong> du champ <code>categorie</code> (enfant,
+                adulte, senior).
+                Ce champ n'existe pas encore dans nos objets, donc nous allons procéder de la manière suivante :
+            </p>
+            <hr>
+            <ol class="mb-0">
+                <li>On commence par une boucle pour parcourir les objets dans <code>data</code>.</li>
+                <li>On fait des tests pour ajouter le champ <code>categorie</code> dans chaque objet selon l'âge :
+                    <ul>
+                        <li>Si l'âge est supérieur ou égal à <strong>60</strong>, on ajoute
+                            <code>categorie = senior</code>.
+                        </li>
+                        <li>Si l'âge est compris entre <strong>18 et 59 inclus</strong>, la catégorie vaut
+                            <code>adulte</code>.
+                        </li>
+                        <li>Sinon, la catégorie est <code>enfant</code>.</li>
+                    </ul>
+                </li>
+                <li>On ajoute ensuite une deuxième fonction en utilisant un <strong>switch</strong> sur la catégorie
+                    pour afficher les données dans leur tableau adéquat.</li>
+            </ol>
+        </div>
+
+        <div class="container-fluid">
+            <h3>Table des seniors</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Age</th>
+                        <th>Ville</th>
+                    </tr>
+                </thead>
+                <tbody id="seniors-table-body">
+
+                </tbody>
+            </table>
+
+            <h3>Table des adultes</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Age</th>
+                        <th>Ville</th>
+                    </tr>
+                </thead>
+                <tbody id="adultes-table-body">
+
+                </tbody>
+            </table>
+
+            <h3>Table des mineurs</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Age</th>
+                        <th>Ville</th>
+                    </tr>
+                </thead>
+                <tbody id="mineurs-table-body">
+
+                </tbody>
+            </table>
+
+        </div>
+
+</body>
+<script>
+
+    let data = [{
+        nom: "Dupont",
+        prenom: "jean",
+        anneeNaissance: 1960,
+        ville: "Casablanca"
+    },
+    {
+        nom: "John",
+        prenom: "Doe",
+        anneeNaissance: 1955,
+        ville: "Rabat"
+    },
+    {
+        nom: "Jane",
+        prenom: "Smith",
+        anneeNaissance: 1990,
+        ville: "Tanger"
+    },
+    {
+        nom: "Alice",
+        prenom: "Johnson",
+        anneeNaissance: 1950,
+        ville: "Fès"
+    },
+    {
+        nom: "Bob",
+        prenom: "Brown",
+        anneeNaissance: 1998,
+        ville: "Marrakech"
+    },
+    {
+        nom: "Charlie",
+        prenom: "Davis",
+        anneeNaissance: 1992,
+        ville: "Agadir"
+    },
+    {
+        nom: "Eve",
+        prenom: "Wilson",
+        anneeNaissance: 2012,
+        ville: "Oujda"
+    },
+    {
+        nom: "Frank",
+        prenom: "Miller",
+        anneeNaissance: 2014,
+        ville: "Kenitra"
+    },
+    {
+        nom: "Grace",
+        prenom: "Taylor",
+        anneeNaissance: 2010,
+        ville: "Tétouan"
+    }
+    ];
+
+    function triParCategorie() {
+        let currentYear = new Date().getFullYear();
+        for (let item of data) {
+            let age = currentYear - item.anneeNaissance;
+            if (age >= 60) {
+                item.categorie = "senior";
+            } else if (age >= 18) {
+                item.categorie = "adulte";
+            } else {
+                item.categorie = "enfant";
+            }
+        }
+
+    }
+
+    triParCategorie()
+
+    function displayDataByCategorie() {
+        var listEnfant = document.getElementById("mineurs-table-body");
+        var listAdulte = document.getElementById("adultes-table-body");
+        var listSenior = document.getElementById("seniors-table-body");
+
+        for (let item of data) {
+            switch (item.categorie) {
+                case "enfant":
+                    listEnfant.innerHTML += `<tr><td>${item.prenom}</td><td>${item.nom}</td><td>${item.anneeNaissance}</td><td>${item.ville}</td></tr>`;
+                    break;
+                case "adulte":
+                    listAdulte.innerHTML += `<tr><td>${item.prenom}</td><td>${item.nom}</td><td>${item.anneeNaissance}</td><td>${item.ville}</td></tr>`;
+                    break;
+                case "senior":
+                    listSenior.innerHTML += `<tr><td>${item.prenom}</td><td>${item.nom}</td><td>${item.anneeNaissance}</td><td>${item.ville}</td></tr>`;
+                    break;
+            }
+        }
+    }
+    displayDataByCategorie();
+</script>
+
+</html>
