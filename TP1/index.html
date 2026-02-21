@@ -107,10 +107,17 @@
     }
     ];
 
+    currentDate = new Date();
+    var currentYear = currentDate.getFullYear();
+
     function chargerDataSenior() {
         var tbody = "";
+
         for (let item of data) {
-            tbody += "<tr><td>" + item.nom + "</td><td>" + item.prenom + "</td><td>" + item.anneeNaissance + "</td><td>" + item.ville + "</td></tr>"
+            let age = currentYear - item.anneeNaissance;
+            if (age >= 60) {
+                tbody += "<tr><td>" + item.nom + "</td><td>" + item.prenom + "</td><td>" + item.anneeNaissance + "</td><td>" + item.ville + "</td></tr>"
+            }
         }
         tbodySenior = document.getElementById("seniors-table-body");
         tbodySenior.innerHTML = tbody;
