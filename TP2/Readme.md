@@ -136,9 +136,8 @@ const bibliotheque = [
 
 ---
 
-### Rappel pour les stagiaires sur le tri (Sort)
+### Rappel sur le tri (Sort)
 
-Pour les exercices de callback, rappelle-leur que pour trier des objets par une propriété numérique `prop` en JavaScript, on utilise souvent :
+Pour les exercices de callback, dans le cas ou on souhaite trier des objets par une propriété numérique `prop` en JavaScript, on utilise souvent :
 `monTableau.sort((a, b) => a.prop - b.prop);` (ordre croissant).
-
-**Est-ce que tu souhaites que je te prépare une petite fiche "mémo" sur les lambdas et les callbacks à leur distribuer avant de commencer ?**
+et dans le cas contraire on utilise : `monTableau.sort((a, b) => b.prop - a.prop);` (ordre décroissant).
